@@ -2,11 +2,11 @@
 
 const mongoose = require('mongoose');
 const app = require('./app');
-const port = 3900;
+const port = 3902;
 
 mongoose.Promise = global.Promise;
 // mongoose.set('useFindAndModify', false); DEPRECATED
-mongoose.connect('mongodb://localhost:27017/api_rest_blog', { useNewUrlParser: true })
+mongoose.connect('mongodb://127.0.0.1:27017/api_rest_blog', { useNewUrlParser: true })
     .then(() => {
         console.log('Conectado!');
 
