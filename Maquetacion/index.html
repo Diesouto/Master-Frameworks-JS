@@ -47,15 +47,31 @@
             <a href="#" class="btn-white">Ir al blog</a>
         </div>
 
-        <div class="center">
+        <div class="center container">
             <section id="content">
                 <h2>Últimos artículos</h2>
+                
                 <!-- Listado de artículos -->
+                <div id="articles">
+                    <article id="article-template" class="article-item">
+                        <div class="image-wrap">
+                            <img src="https://imagenpng.com/wp-content/uploads/img/paisajes-para-fondo-de-pantalla.jpg" alt="paisaje"/>
+                        </div>
+
+                        <h2>Artículo de prueba</h2>
+                        <span class="date">
+                            Hace 5 minutos
+                        </span>
+                        <a href="#">Leer más</a>
+
+                        <div class="clearfix"></div>
+                    </article>
+                </div>
             </section>
             <aside id="sidebar">
                 <div id="nav-blog" class="sidebar-item">
                     <h3>Puedes hacer esto</h3>
-                    <a href="#">Crear artículo</a>
+                    <a href="#" class="btn btn-success">Crear artículo</a>
                 </div>
 
                 <div id="search" class="sidebar-item">
@@ -63,7 +79,7 @@
                     <p>Encuentra el artículo que buscas</p>
                     <form>
                         <input type="text" name="search">
-                        <input type="submit" name="submit" value="Buscar">
+                        <input class="btn btn-success" type="submit" name="submit" value="Buscar">
                     </form>
                 </div>
             </aside>
@@ -77,5 +93,22 @@
                 <p>&copy; curso React</p>
             </div>
         </footer>
+
+        <!-- Scripts -->
+        <script type="text/javascript">
+            window.onload = function(){
+                const template = document.getElementById("article-template");
+                const articles = document.getElementById("articles");
+
+                for (let i = 1; i < 5; i++) {
+                    const clonar = template.cloneNode(true);
+                    const titulo = clonar.getElementsByTagName("h2")[0];
+                    clonar.removeAttribute("id");
+
+                    titulo.innerHTML = titulo.innerHTML + " " + i;
+                    articles.appendChild(clonar);
+                };
+            };
+        </script>
     </body>
 </html>

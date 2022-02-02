@@ -13,7 +13,7 @@ body {
 
 /*CLASES*/
 .center {
-    width: 75%;
+    width: 80%;
     margin: 0px auto;
 }
 
@@ -24,7 +24,7 @@ body {
 /*IDs*/
 /*HEADER*/
 #header {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     height: 120px;
     width: 100%;
     background-color: white;
@@ -71,7 +71,7 @@ body {
 
 #menu ul {
     line-height: 85px;
-    width: 60%;
+    /* width: 60%; */
     float: right;
 }
 
@@ -109,7 +109,7 @@ body {
 .slider-big h1 {
     margin-top: 0;
     padding: 0px;
-    padding-top: 135px;
+    padding-top: 3.5em;
     text-align: center;
 }
 
@@ -148,12 +148,16 @@ body {
 #content {
     width: 70%;
     float: left;
-    min-height: 450px;
+    min-height: 100vh;
     margin-right: 20px;
 }
 
+.container {
+    margin-top: 2em;
+}
+
 #sidebar {
-    width: 25%;
+    /* width: 25%; */
     float: left;
 }
 
@@ -170,4 +174,107 @@ body {
     margin-bottom: 10px;
     padding-bottom: 10px;
     border-bottom: 3px solid #eee;
+}
+
+.sidebar-item .btn {
+    margin: 0px auto;
+    margin-top: 10px;
+}
+
+.btn {
+    display: block;
+    background-color: black;
+    color: white;
+    padding: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    text-decoration: none;
+    max-width: 9em;
+    transition: 300ms all;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-success {
+    background-color: gray;
+}
+
+.btn-success:hover {
+    background-color: #61dafb;
+}
+
+input[type="text"] {
+    width: 100%;
+    height: 2em;
+    border: 1px solid #eee;
+    padding: 3px;
+    margin-bottom: 0.5em;
+    transition: 300ms all;
+}
+
+input[type="text"]:hover {
+    box-shadow: 0px 0px 3px #ccc inset;
+}
+
+#footer {
+    background-color: #f7f7f7;
+    height: 4em;
+    line-height: 4em;
+    color: #444;
+}
+
+#footer p {
+    margin: 0%;
+    padding: 0%;
+}
+
+/* articulos */
+#articles {
+    margin-bottom: 2em;
+}
+
+.article-item {
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    text-align: left;
+}
+
+.article-item .image-wrap {
+    width: 14em;
+    height: 8em;
+    overflow: hidden;
+    float: left;
+    margin-right: 1em;
+}
+
+.article-item .image-wrap img {
+    height: 100%;
+}
+
+.article-item h2 {
+    display: block;
+    width: 100%;
+    padding: 0%;
+    margin: 0%;
+}
+
+.article-item .date {
+    display: block;
+    width: 100%;
+    color: #666;
+}
+
+.article-item a {
+    display: block;
+    color: #444;
+    text-decoration: none;
+    margin-top: 1em;
+}
+
+.article-item a:hover {
+    text-decoration: underline;
 }
