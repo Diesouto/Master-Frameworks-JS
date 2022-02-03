@@ -26,7 +26,7 @@
                             <a href="blog.html">Blog</a>
                         </li>
                         <li>
-                            <a href="#">Formulario</a>
+                            <a href="formulario.html">Formulario</a>
                         </li>
                         <li>
                             <a href="#">Página 1</a>
@@ -46,7 +46,7 @@
             <section id="content">
                 <h1 class="subheader">Formulario</h1>
 
-                <form>
+                <form class="mid-form">
                     <div class="form-group">
                         <label for="nombre">Nombre</label>
                         <input type="text" name="nombre"/>
@@ -59,12 +59,13 @@
                         <label for="bio">Biografía</label>
                         <textarea name="bio"></textarea>
                     </div>
-                    <br class="form-group">
-                        <input type="radio" name="genero" checked value="hombre"/>Hombre</br>
-                        <input type="radio" name="genero" value="mujer"/>Mujer</br>
-                        <input type="radio" name="genero" value="otro"/>Otro</br>
+                    <div class="form-group radiobuttons">
+                        <input type="radio" name="genero" checked value="hombre"/><span>Hombre</span>
+                        <input type="radio" name="genero" value="mujer"/><span>Mujer</span>
+                        <input type="radio" name="genero" value="otro"/><span>Otro</span>
                     </div>
-                    <input type="submit" value="Enviar" class="btn btn-success"/>
+                    <div class="clearfix"></div>
+                    <input id="btnSubmitForm" type="submit" value="Enviar" class="btn btn-success"/>
                 </form>
             </section>
             <aside id="sidebar">
