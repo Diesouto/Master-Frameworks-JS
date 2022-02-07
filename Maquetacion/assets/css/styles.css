@@ -364,12 +364,37 @@ textarea:focus {
     #slider h1 {
         font-size: 2em;
     }
+}
 
-    
-    @media (max-width: 540px) {
-        #header {
-            min-height: 3em;
-            overflow: hidden;
-        }
+@media (max-width: 540px) {
+    #header {
+        min-height: 3em;
+        overflow: hidden;
+    }
+
+    #slider {
+        height:10em;
+    }
+
+    #slider h1 {
+        font-size: 1em;
+        padding-top: 3em;
+    }
+
+    #slider .btn-white {
+        margin-top: 1em;
+        padding: 0%;
+    }
+
+    #slider.slider-small {
+        height: 6em;
+    }
+
+    #slider.slider-small h1 {
+        padding-top: 2.3em;
+    }
+
+    .mid-form {
+        width: 70%;
     }
 }

@@ -1,6 +1,8 @@
 'use strict'
 
 const validator = require('validator');
+const fs = require('fs');
+const path = require('path');
 const Article = require('../models/article');
 
 const controller = {
@@ -215,6 +217,117 @@ const controller = {
             });
         });
     },
+
+    upload: (req, res) => {
+        // Configurar connect multiparty en: router/article.js
+        //#region Params
+        const idArticulo = req.params.id;
+
+        // Recoger fichero
+        if(!req.files.file0 || !idArticulo) {
+            return res.status(404).send({
+                status: 'error',
+                message: 'Imagen no subida...'
+            });
+        }
+
+        // Conseguir nombre y extensión
+        const file_name = req.files.file0.name;
+        const file_ext = file_name.split('.')[1];
+        const file_path = req.files.file0.path;
+        const file_split = file_path.split('\\');   // Windows
+        // const file_split = file_path.split('/'); // Linux o Mac
+        //#endregion
+
+        //#region Validar
+        if(file_ext != 'png' && file_ext != 'jpg' && file_ext != 'jpeg' && file_ext != 'gif') {
+            //Borrar archivo y delvolver respuesta
+            fs.unlink(file_path, (err) => {
+                return res.status(404).send({
+                    status: 'error',
+                    message: 'Extensión del archivo no es válida'
+                });
+            });
+        } 
+        //#endregion
+        //#region Buscar artículo y guardar imagen
+        else {
+            Article.findOneAndUpdate({ _id: idArticulo }, { image: file_name }, { new: true }, (err, articleUpdated) => {
+                // Validar
+                if(err || !articleUpdated) {
+                    fs.unlink(file_path, (err) => {
+                        return res.status(404).send({
+                            status: 'error',
+                            message: 'Error al guardar el archivo'
+                        });
+                    });
+                }
+                // Devolver respuesta
+                else {
+                    return res.status(200).send({
+                        status: 'success',
+                        article: articleUpdated
+                    });
+                }
+            });
+        }
+        //#endregion
+    },
+
+    getImage: (req, res) => {
+        // Params
+        const file = req.params.image;
+        const path_file = './upload/articles/' + file;
+
+        // Validar
+        fs.exists(path_file, (exists) => {
+            if(!exists) {
+                return res.status(404).send({
+                    status: 'error',
+                    message: 'La imagen no existe'
+                });
+            }
+        });
+
+        // Respuesta
+        return res.sendFile(path.resolve(path_file));
+    },
+
+    search: (req, res) => {
+        // Parámetro a buscar
+        const search = req.params.search;
+
+        // Búsqueda
+        Article.find({
+            "$or": [
+                {"title": {"$regex": search, "$options": "i"}},
+                {"content": {"$regex": search, "$options": "i"}},
+            ]
+        })
+        .sort([['date', 'descending']])
+        .exec((err, articles) => {
+            // Validar
+            if(err) {
+                return res.status(500).send({
+                    status: 'error',
+                    message: "Error en la petición"
+                });
+            };
+
+            if(articles.length === 0) {
+                return res.status(404).send({
+                    status: 'error',
+                    message: "No hay artículos que coincidan con tu búsqueda"
+                });
+            };
+
+            // Respuesta
+            return res.status(200).send({
+                status: 'success',
+                articles
+            });
+        });
+    }
 };
 
 module.exports = controller;
