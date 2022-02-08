@@ -1,38 +1,400 @@
-.App {
+/*ELEMENTOS*/
+body {
   text-align: center;
+  margin: 0%;
+  padding: 0%;
+
+  /*FUENTES*/
+  font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/*CLASES*/
+.center {
+  width: 80%;
+  margin: 0px auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.clearfix {
+  clear: both;
+}
+
+/*IDs*/
+/*HEADER*/
+#header {
+  /* border: 1px solid black; */
+  height: 120px;
+  width: 100%;
+  background-color: white;
+  border-bottom: 1px solid #ccc;
+  border-top: 10px solid #61dafb;
+}
+
+#logo {
+  width: 30%;
+  font-size: 30px;
+  float: left;
+  margin-top: 35px;
+}
+
+#logo img {
+  display: block;
+  float: left;
+  height: 60px;
+  margin-top: -9px;
+  margin-right: 10px;
+  animation: girar infinite 30s linear;
+}
+
+@keyframes girar {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+#brand {
+  display: block;
+  margin: 0px;
+  float: left;
 }
 
-.App-link {
+#menu {
+  width: 70%;
+  float: right;
+  font-size: 18px;
+}
+
+#menu ul {
+  line-height: 85px;
+  /* width: 60%; */
+  float: right;
+}
+
+#menu ul li {
+  display: inline-block;
+  list-style: none;
+  height: 46px;
+  margin-left: 0.6em;
+  margin-right: 0.6em;
+}
+
+#menu a {
+  text-decoration: none;
+  color: #444;
+  transition: 300ms all;
+}
+
+#menu a:hover {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/*SLIDER*/
+#slider {
+  width: 100%;
+  /* line-height: 320px; */
+  color: white;
+  text-shadow: 0px 0px 5px #444;
+  background-color: #61dafb;
+}
+
+.slider-big {
+  height: 350px;
+}
+
+.slider-big h1 {
+  margin-top: 0;
+  padding: 0px;
+  padding-top: 3.5em;
+  text-align: center;
+}
+
+.slider-small {
+  height: 150px;
+}
+
+.slider-small h1 {
+  margin-top: 0;
+  padding: 0px;
+  padding-top: 50px;
+  text-align: center;
+}
+
+.btn-white {
+  color: #444;
+  display: block;
+  background-color: white;
+  padding: 10px;
+  width: 100px;
+  height: 35px;
+  margin: 0 auto;
+  text-transform: uppercase;
+  text-shadow: none;
+  text-decoration: none;
+  line-height: 35px;
+  box-shadow: 0px 0px 3px #ccc;
+  border-radius: 4px;
+}
+
+.btn-white:hover {
+  background-color: #444;
+  color: white;
+}
+
+#content {
+  width: 70%;
+  float: left;
+  min-height: 100vh;
+  margin-right: 20px;
+}
+
+.container {
+  margin-top: 2em;
+}
+
+#sidebar {
+  /* width: 25%; */
+  float: left;
+}
+
+.sidebar-item {
+  background-color: #f7f7f7;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.sidebar-item h3 {
+  text-transform: uppercase;
+  font-size: 17px;
+  margin: 0px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #eee;
+}
+
+.sidebar-item .btn {
+  margin: 0px auto;
+  margin-top: 10px;
+}
+
+.btn {
+  display: block;
+  background-color: black;
+  color: white;
+  padding: 1em;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
+  text-decoration: none;
+  max-width: 9em;
+  transition: 300ms all;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-success {
+  background-color: gray;
+}
+
+.btn-success:hover {
+  background-color: #61dafb;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  min-height: 2em;
+  border: 1px solid #eee;
+  padding: 3px;
+  margin-bottom: 0.5em;
+  transition: 300ms all;
+}
+
+#btnSubmitForm {
+  float: right;
+  margin-bottom: 2em;
+}
+
+textarea {
+  max-width: 100%;
+  min-height: 10em;
+}
+
+.radiobuttons {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  float: left;
+}
+
+.mid-form {
+  width: 50%;
+  margin: 0% auto;
+}
+
+.mid-form label {
+  display: block;
+  text-align: left;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+input[type="text"]:hover,
+textarea:focus {
+  box-shadow: 0px 0px 3px #ccc inset;
+}
+
+#footer {
+  background-color: #f7f7f7;
+  height: 4em;
+  line-height: 4em;
+  color: #444;
+}
+
+#footer p {
+  margin: 0%;
+  padding: 0%;
+}
+
+/* articulos */
+#articles {
+  margin-bottom: 2em;
+}
+
+.article-item {
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  text-align: left;
+}
+
+.article-item .image-wrap {
+  width: 14em;
+  height: 8em;
+  overflow: hidden;
+  float: left;
+  margin-right: 1em;
+}
+
+.article-item .image-wrap img {
+  height: 100%;
+}
+
+.article-item h2 {
+  display: block;
+  width: 100%;
+  padding: 0%;
+  margin: 0%;
+}
+
+.article-item .date {
+  display: block;
+  width: 100%;
+  color: #666;
+}
+
+.article-item a {
+  display: block;
+  color: #444;
+  text-decoration: none;
+  margin-top: 1em;
+}
+
+.article-item a:hover {
+  text-decoration: underline;
+}
+
+/* article page */
+.article-detail .image-wrap{
+  float: none;
+  width: 100%;
+  height: 20em;
+}
+
+.article-detail .image-wrap img{
+  width: 100%;
+}
+
+.subheader {
+  font-size: 2.5em;
+}
+
+.article-detail .subheader {
+  font-size: 2.5em;
+  margin-bottom: 0.2em;
+  margin-top: 0.5em;
+}
+
+/* Responsive */
+@media (max-width: 975px) {
+  #logo {
+      float: none;
+      width: 240px;
+      margin: 0px auto;
+      margin-top: 0.8em;
   }
-  to {
-    transform: rotate(360deg);
+
+  #menu,
+  #menu ul {
+      clear: both;
+      float: none;
+      width: 100%;
+      margin: 0px;
+      padding: 0px;
+      line-height: 2em;
+  }
+
+  #content {
+      float: none;
+      width: 100%;
+  }
+
+  #sidebar {
+      float: none;
+      width: 60%;
+      margin: 0px auto;
+      margin-bottom: 2em;
+  }
+
+  #slider h1 {
+      font-size: 2em;
+  }
+}
+
+@media (max-width: 540px) {
+  #header {
+      min-height: 3em;
+      overflow: hidden;
+  }
+
+  #slider {
+      height:10em;
+  }
+
+  #slider h1 {
+      font-size: 1em;
+      padding-top: 3em;
+  }
+
+  #slider .btn-white {
+      margin-top: 1em;
+      padding: 0%;
+  }
+
+  #slider.slider-small {
+      height: 6em;
+  }
+
+  #slider.slider-small h1 {
+      padding-top: 2.3em;
+  }
+
+  .mid-form {
+      width: 70%;
   }
 }
